@@ -1,0 +1,7 @@
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\bin\Debug\external_Sort.exe.config
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\bin\Debug\external_Sort.exe
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\bin\Debug\external_Sort.pdb
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\obj\Debug\external_Sort.csprojAssemblyReference.cache
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\obj\Debug\external_Sort.csproj.CoreCompileInputs.cache
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\obj\Debug\external_Sort.exe
+C:\Users\xiaom\source\repos\external_Sort\external_Sort\obj\Debug\external_Sort.pdb
