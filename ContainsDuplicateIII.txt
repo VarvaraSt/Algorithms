@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        if (nums.size() == 0 || k <= 0) return false;
+        std::unordered_map<long, long> buckets = std::unordered_map<long, long>();
+        long bucketSize = (long)t + 1;
+        for (int i = 0; i < nums.size(); i++) {
+            long num = (long)nums[i];
+            long bucketId = num > 0 ? num / bucketSize : (num - bucketSize + 1l) / bucketSize;
+            if (buckets.find(bucketId) != buckets.end())
+            {
+                return true;
+            }
+            if (buckets.find(bucketId + 1) != buckets.end() && abs(buckets.at(bucketId + 1) - num) <= t)
+            {
+                return true;
+            }
+            if (buckets.find(bucketId - 1) != buckets.end() && abs(buckets.at(bucketId - 1) - num) <= t)
+            {
+                return true;
+            }
+            buckets.insert({ bucketId, num });
+    	    if (i >= k)
+    	    {
+                long oldNum = (long)nums[i - k];
+                buckets.erase(oldNum > 0 ? oldNum / bucketSize : (oldNum - bucketSize + 1l) / bucketSize);
+    	    }
+        }
+        return false;
+    }
+};

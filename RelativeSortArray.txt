@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        int count[1001];
+        std::fill_n(count, 1001, 0);
+        int max = 0;
+        for (int elem : arr1)
+        {
+            count[elem]++;
+            if (elem > max) max = elem;
+        }
+        std::vector<int> ans;
+        for (int elem : arr2)
+        {
+	        for (int i = 0; i < count[elem]; i++)
+	        {
+                ans.push_back(elem);
+	        }
+            count[elem] = 0;
+        }
+        for (int i = 0; i <= max; i++)
+        {
+	        if (count[i] > 0)
+	        {
+                for (int j = 0; j < count[i]; j++)
+                {
+                    ans.push_back(i);
+                }
+	        }
+        }
+        return ans;
+    }
+};

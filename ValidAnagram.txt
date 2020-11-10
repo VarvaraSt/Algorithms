@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int arrS[26];
+        int arrT[26];
+        fill_n(arrS, 26, 0);
+        fill_n(arrT, 26, 0);
+        if (s.length() != t.length()) return false;
+        for (int i = 0; i < s.length(); i++) {
+           arrS[static_cast<int>(s[i]) - static_cast<int>('a')] += 1;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            arrT[static_cast<int>(t[i]) - static_cast<int>('a')] += 1;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (arrS[i] != arrT[i]) return false;
+        }
+        return true;
+    }
+};

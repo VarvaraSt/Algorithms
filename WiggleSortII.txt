@@ -1,0 +1,33 @@
+class Solution {
+public:
+    void wiggleSort(vector<int>& nums) {
+        if (nums.size() == 0) return;
+        int n = nums.size();
+        int mid = (n + 1) / 2 - 1;
+        nth_element(nums.begin(), nums.begin() + mid, nums.end());
+        int median = nums[mid];
+        int odd = 1;
+        int even = (n % 2 == 0) ? n - 2 : n - 1;
+        for(int i = 0; i < n; i++)
+        {
+            if (nums[i] > median)
+            {
+                if (i % 2 == 0 || i >= odd)
+                {
+                    swap(nums[odd], nums[i]);
+                    odd += 2;
+                    i--;
+                }
+            }
+            else if (nums[i] < median)
+            {
+                if (i % 2 == 1 || i <= even)
+                {
+                    swap(nums[even], nums[i]);
+                    even -= 2;
+                    i--;
+                }
+            }
+        }
+    }
+};

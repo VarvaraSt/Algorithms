@@ -1,0 +1,52 @@
+class Solution {
+public:
+    void mergeSort(vector<long long>& nums, int begin, int c, int end)
+    {
+        long long num1[c - begin + 1], num2[end - c];
+	    for(int i = begin; i <= end; i++)
+	    {
+            if (i <= c)
+                num1[i - begin] = nums[i];
+            else
+                num2[i - c - 1] = nums[i];
+	    }
+        int i = 0;
+        int j = 0;
+	    for (int k = begin; k <= end; k++)
+	    {
+		    if (j >= end - c || i < c - begin + 1 && num1[i] < num2[j])
+		    {
+                nums[k] = num1[i];
+                i++;
+		    }
+            else
+            {
+                nums[k] = num2[j];
+                j++;
+            }
+	    }
+    }
+    int merge(vector<long long>& nums, int start, int end, int lower, int upper) {
+        if (end - start <= 1) return 0;
+        int middle = (end + start) / 2;
+        int count = merge(nums, start, middle, lower, upper) + merge(nums, middle, end, lower, upper);
+        int tooSmall = middle;
+        int norm = middle;
+        for (int i = start; i < middle; i++) 
+        {
+            while (tooSmall < end && nums[tooSmall] - nums[i] < lower) 
+                tooSmall++;
+            while (norm < end && nums[norm] - nums[i] <= upper)
+                norm++;
+            count += norm - tooSmall;
+        }
+        mergeSort(nums, start, middle - 1, end - 1);
+        return count;
+    }
+    int countRangeSum(vector<int>& nums, int lower, int upper) {
+        vector<long long> sum(nums.size() + 1, 0);
+        for (int i = 0; i < nums.size(); i++) 
+            sum[i + 1] = sum[i] + nums[i];
+        return merge(sum, 0, sum.size(), lower, upper);
+    }
+};

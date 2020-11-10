@@ -1,0 +1,53 @@
+class Solution {
+public:
+    void mergeSort(vector<int>& nums, int begin, int c, int end)
+    {
+        int num1[c - begin + 1], num2[end - c];
+	    for(int i = begin; i <= end; i++)
+	    {
+            if (i <= c)
+                num1[i - begin] = nums[i];
+            else
+                num2[i - c - 1] = nums[i];
+	    }
+        int i = 0;
+        int j = 0;
+	    for (int k = begin; k <= end; k++)
+	    {
+		    if (j >= end - c || i < c - begin + 1 && num1[i] < num2[j])
+		    {
+                nums[k] = num1[i];
+                i++;
+		    }
+            else
+            {
+                nums[k] = num2[j];
+                j++;
+            }
+	    }
+    }
+
+    int recursiveCount(vector<int>& nums, int begin, int end)
+    {
+        if (begin >= end) return 0;
+        else
+        {
+            int c = (begin + end) / 2;
+            int ans = recursiveCount(nums, begin, c) + recursiveCount(nums, c + 1, end);
+            int j = c + 1;
+    	    for (int i = begin; i <= c; i++)
+    	    {
+    		    while (j <= end && nums[j] * 2l < nums[i])
+    		    {
+                    j++;
+    		    }
+                ans += j - c - 1;
+    	    }
+            mergeSort(nums, begin, c, end);
+            return ans;
+        }
+    }
+    int reversePairs(vector<int>& nums) {
+        return recursiveCount(nums, 0, nums.size() - 1);
+    }
+};
