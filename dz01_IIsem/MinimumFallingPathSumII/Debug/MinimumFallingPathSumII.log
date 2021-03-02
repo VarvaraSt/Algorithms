@@ -1,0 +1,5 @@
+﻿  MinimumFallingPathSumII.cpp
+C:\Users\xiaom\source\repos\Graphs\MinimumFallingPathSumII\MinimumFallingPathSumII.cpp(15,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\xiaom\source\repos\Graphs\MinimumFallingPathSumII\MinimumFallingPathSumII.cpp(29,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\xiaom\source\repos\Graphs\MinimumFallingPathSumII\MinimumFallingPathSumII.cpp(35,22): warning C4018: <: несоответствие типов со знаком и без знака
+  MinimumFallingPathSumII.vcxproj -> C:\Users\xiaom\source\repos\Graphs\Debug\MinimumFallingPathSumII.exe

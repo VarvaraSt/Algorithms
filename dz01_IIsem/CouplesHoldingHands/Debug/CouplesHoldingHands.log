@@ -1,0 +1,4 @@
+﻿  CouplesHoldingHands.cpp
+C:\Users\xiaom\source\repos\Graphs\CouplesHoldingHands\CouplesHoldingHands.cpp(14,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\xiaom\source\repos\Graphs\CouplesHoldingHands\CouplesHoldingHands.cpp(18,21): warning C4018: <: несоответствие типов со знаком и без знака
+  CouplesHoldingHands.vcxproj -> C:\Users\xiaom\source\repos\Graphs\Debug\CouplesHoldingHands.exe
